@@ -1,0 +1,37 @@
+@charset "utf-8";
+html, body{width: 100%; height: 100%;}
+#root>header.More{background: #513736;}
+.header_inner .left_item{text-indent: 10px;}
+
+main#More{height: 85.8%; padding-top: 64px;} /*723*/
+
+#More .user_info{height: 72px;}
+#More .user_info{display: flex; align-items: center;}
+#More .profile_img{width: 50px; height: 50px; margin: 10px 15px; background: url(../images/empty.jpg) 0 0 / cover no-repeat; border-radius: 25px;}
+#More .profile_info{flex: auto; display: flex; flex-direction: column;}
+#More .profile_name{font-size: 16px; font-weight: bold; margin: -5px 0 5px 0;}
+#More .profile_email{color: #8E9399;}
+#More .chat_img a{font-size: 30px; margin-right: 15px; color: #513736;}
+
+#More .user_menu{height: 125px;}
+#More .user_menu ul{display: flex; align-items: center; height: 100%;}
+#More .user_menu ul li{overflow: hidden; flex: 1;}
+#More .user_menu ul li a{display: flex; margin-top: 5px; flex-direction: column; align-items: center; color: #513736; font-weight: bold; transition: transform 300ms;}
+#More .user_menu ul li a:hover{transform: scale(1.05);}
+#More .user_menu ul li a i{font-size: 30px;margin-bottom: 10px;}
+
+#More .plus_friends{height: 280px;}
+#More .plus_friends header{display: flex; justify-content: space-between; font-size: 16px; padding: 0 15px; margin-bottom: 15px;}
+#More .plus_friends header span{color: #8E9399;}
+#More .plus_friends .plus_list{display: flex; flex-wrap: wrap;}
+#More .plus_friends .plus_list li{display: flex; align-items: center; width: 50%; height: 45px;}
+#More .plus_friends .plus_list li i{margin: 0 15px 0 20px; font-size: 16px;}
+
+#More .more_app{padding: 0 15px;}
+#More .more_app ul{display: flex;}
+#More .more_app li{width: 75px;}
+#More .more_app li a{display: flex; flex-direction: column; align-items: center; width: 100%;}
+#More .more_app li .app_icon{display: block; width: 44px; height: 44px; margin-bottom: 10px; background: url(../images/empty.jpg) 0 0 / cover no-repeat;}
+#More .more_app li:nth-child(1) .app_icon{background-image: url(../images/kakaostory.png);}
+#More .more_app li:nth-child(2) .app_icon{background-image: url(../images/path.png);}
+#More .more_app li:nth-child(3) .app_icon{background-image: url(../images/kakaofriends.png);}

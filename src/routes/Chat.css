@@ -1,0 +1,24 @@
+@charset "utf-8";
+#root>header.Chat{z-index: 1; color: #000; background-color: #A1C0D5; border-bottom: 1px solid #96ACBA;}
+.Chat .header_inner .left_item a{color: #000; opacity: 1; font-size: 24px;}
+.Chat .header_inner .right_item a{color: #000; font-size: 16px;}
+.Chat .header_inner .right_item a i{padding-left: 5px;}
+main#Chat{display: flex; flex-direction: column; height: calc(100% - 45px); padding-top: 64px; background: #A1C0D5;}
+#Chat .date_info{opacity: 0.5; text-align: center; margin: 10px;}
+#Chat .chat_box{display: inline-flex; width: fit-content; max-width: calc(100% - 80px); flex-direction: column; align-items: flex-start; position: relative;}
+#Chat .chat{font-size: 16px; line-height: 1; margin: 5px; padding: 10px 5px; border-radius: 5px; background: #fff;}
+#Chat .chat_time{position: absolute; bottom: -5px; right: -30px; opacity: 0.5;}
+#Chat .my{max-width: 240px; align-self: flex-end; align-items: flex-end;}
+#Chat .my .chat{background: #FFE73A;}
+#Chat .my .chat_time{left: -30px; width: 50px;}
+#Chat .other{margin-left: 45px;}
+#Chat .profile_img{position: absolute; left: -40px; top: 5px; display: block; width: 35px; height: 35px; background: url(../images/empty.jpg) 0 0 / cover no-repeat; border-radius: 17.5px;}
+#Chat .profile_name{display: block; font-weight: bold; margin: 5px;}
+
+#root>footer{display: flex; justify-content: space-between; align-items: center; position: fixed; bottom: 0; width: 100%; height: 45px; background: #eee;}
+.plus_btn a{color: #B3B4B4; padding-left: 10px; font-size: 16px;}
+.text_box{position: relative; display: flex; justify-content: flex-end; align-items: center; width: calc(100% - 40px);}
+.text_field{width: calc(100% - 40px); height: 32px;}
+.emoticon_btn{position: absolute; right: 45px;}
+.emoticon_btn a{color: #B3B4B4;}
+.voice_btn a{display: block; width: 34px; height: 37px; margin-right: 5px; line-height: 37px; text-align: center; background: #FFE73A; color: #513736; font-size: 16px;}
