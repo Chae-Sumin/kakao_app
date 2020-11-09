@@ -1,27 +1,28 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import './Chat.css'
 
 export default function Chat(props) {
-    const {location : loc, history : his} = props;
-    const {name, comment, img} = loc.state;
-    useEffect(() => {
-        if(loc.state === undefined){
-            his.push("/Chats");
+    const {location , history} = props;
+    const redirect = () => {
+        if(location.state === undefined){
+            history.replace('/Chats');
         }
-    },[])
+    }
+    useEffect(redirect);
+    if(location.state){
     return (
         <>
-        <header class="Chat">
-        <div class="status_bar">
-            <div class="left_item"><i class="fas fa-plane"></i><i class="fas fa-wifi"></i></div>
-            <div class="center_item"><span>17</span>:<span>33</span></div>
-            <div class="right_item"><i class="far fa-moon"></i><i class="fab fa-bluetooth-b"></i><span><span>100</span>%</span><i class="fas fa-battery-full"></i></div>
+        <header className="Chat">
+        <div className="status_bar">
+            <div className="left_item"><i className="fas fa-plane"></i><i className="fas fa-wifi"></i></div>
+            <div className="center_item"><span>17</span>:<span>33</span></div>
+            <div className="right_item"><i className="far fa-moon"></i><i className="fab fa-bluetooth-b"></i><span><span>100</span>%</span><i className="fas fa-battery-full"></i></div>
         </div>
-        <div class="header_inner">
-            <h1>{name}</h1>
-            <div class="left_item"><Link to="/Chats"><i class="fas fa-angle-left"></i></Link></div>
-            <div class="right_item"><a href="#"><i class="fas fa-search"></i><i class="fas fa-bars"></i></a></div>
+        <div className="header_inner">
+            <h1>{location.state.name}</h1>
+            <div className="left_item"><Link to="/Chats"><i className="fas fa-angle-left"></i></Link></div>
+            <div className="right_item"><a href="#"><i className="fas fa-search"></i><i className="fas fa-bars"></i></a></div>
         </div>
         </header>
          <main id="Chat">
@@ -34,12 +35,12 @@ export default function Chat(props) {
         </div>
         <div className="chat_box other">
             <div className="other_info">
-                <a href="#"><span className="profile_img" style={{backgroundImage: 'url('+{img}+')'}}></span></a>
-                <span className="profile_name">Friend Name</span>
+                <a href="#"><span className="profile_img" style={{backgroundImage: 'url('+location.state.img+')'}}></span></a>
+                <span className="profile_name">{location.state.name}</span>
             </div>
             <span className="chat">And this is an answer</span>
             <span className="chat">And this is an answer And this is an answer</span>
-            <span className="chat">{comment}</span>
+            <span className="chat">{location.state.comment}</span>
             <span className="chat_time"><span>17</span>:<span>33</span></span>
         </div>
     </main>
@@ -53,4 +54,5 @@ export default function Chat(props) {
     </footer>   
         </>
     )
+    }else return null;
 }

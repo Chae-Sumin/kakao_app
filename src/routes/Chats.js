@@ -7,16 +7,15 @@ import imageJSON from '../data/imageJSON.json'
 import './Chats.css'
 export function Chats(){
     const [names, setNames] = useState([]);
-    const [comments, setComment] = useState([]);
+    const [comment, setComment] = useState([]);
     const tab_name = "Chats";
     const left_btn = "Edit";
     const header_icon = "fas fa-caret-down";
     let getData = async () => {
         const {data : names} = await axios.get('https://jsonplaceholder.typicode.com/users');
-        const {data : comments} = await axios.get('https://jsonplaceholder.typicode.com/comments');
+        const {data : comment} = await axios.get('https://jsonplaceholder.typicode.com/comments');
+        setComment(comment);
         setNames(names);
-        setComment(comments);
-        setImg(imgs);
     }
     useEffect(getData,[]);
         return (
@@ -31,13 +30,14 @@ export function Chats(){
                     </div>
                     <section className="main_section">
                         <ul>
-                            {names.map((name, idx) => (
+                            {names.map((name, idx) => {
+                                return (
                                 <ChatList 
                                 id = {name.id}
                                 name = {name.name}
-                                comment = {comments[idx].name}
+                                comment = {comment[idx].name}
                                 img = {imageJSON[idx].img}
-                                />  ))}
+                                />  )})}
                         </ul>
                     </section>
                     <div className="chat_btn">
@@ -46,7 +46,7 @@ export function Chats(){
                         </a>
                     </div>
                 </main>
-      <Nav />
+                <Nav />
             </>
         )
     }
