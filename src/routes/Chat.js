@@ -2,7 +2,14 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './Chat.css'
 
-export default function Chat() {
+export default function Chat(props) {
+    const {location : loc, history : his} = props;
+    const {name, comment, img} = loc.state;
+    useEffect(() => {
+        if(loc.state === undefined){
+            his.push("/Chats");
+        }
+    },[])
     return (
         <>
         <header class="Chat">
@@ -12,7 +19,7 @@ export default function Chat() {
             <div class="right_item"><i class="far fa-moon"></i><i class="fab fa-bluetooth-b"></i><span><span>100</span>%</span><i class="fas fa-battery-full"></i></div>
         </div>
         <div class="header_inner">
-            <h1>Friend Name</h1>
+            <h1>{name}</h1>
             <div class="left_item"><Link to="/Chats"><i class="fas fa-angle-left"></i></Link></div>
             <div class="right_item"><a href="#"><i class="fas fa-search"></i><i class="fas fa-bars"></i></a></div>
         </div>
@@ -27,12 +34,12 @@ export default function Chat() {
         </div>
         <div className="chat_box other">
             <div className="other_info">
-                <a href="#"><span className="profile_img"></span></a>
+                <a href="#"><span className="profile_img" style={{backgroundImage: 'url('+{img}+')'}}></span></a>
                 <span className="profile_name">Friend Name</span>
             </div>
             <span className="chat">And this is an answer</span>
             <span className="chat">And this is an answer And this is an answer</span>
-            <span className="chat">And this is an answer</span>
+            <span className="chat">{comment}</span>
             <span className="chat_time"><span>17</span>:<span>33</span></span>
         </div>
     </main>

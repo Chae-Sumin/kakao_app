@@ -4,7 +4,10 @@ import {Link} from 'react-router-dom'
 export default function ChatList({id, name, comment, img}) {
     return (
         <li>
-            <Link to="/Chat">
+            <Link to={{
+                pathname: '/Chat',
+                state : {id, name, comment, img}
+            }}>
                 <span className="chats_img" style={{backgroundImage : "url("+img+")"}}></span>
                 <span className="chats_cont">
                     <span className="chats_name">{name}</span>
