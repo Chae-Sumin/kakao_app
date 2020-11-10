@@ -2,10 +2,12 @@ import React from 'react'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
 import plusJSON from '../data/plusList.json'
+import profiles from '../data/memberList.json'
 import './More.css'
 import PlusFriends from '../components/PlusFriends'
 
 export default function More() {
+    const myProfile = profiles[0];
     return (
         <>
             <Header tab_name = "More" left_btn = "" right_btn = "fas fa-cog"/>
@@ -14,8 +16,8 @@ export default function More() {
                 <section className="user_info">
                     <span className="profile_img"></span>
                     <span className="profile_info">
-                        <span className="profile_name">My Name</span>
-                        <span className="profile_email">Userid@gmail.com</span>
+                        <span className="profile_name">{myProfile.name}</span>
+                        <span className="profile_email">{myProfile.email}</span>
                     </span>
                     <span className="chat_img"><a href="#"><i className="far fa-comment"></i></a></span>
                 </section>
