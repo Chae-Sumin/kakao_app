@@ -30,14 +30,13 @@ export function Chats(){
                     </div>
                     <section className="main_section">
                         <ul>
-                            {names.map((name, idx) => {
-                                return (
+                            {names.map((name, idx)=>(
                                 <ChatList 
                                 id = {name.id}
                                 name = {name.name}
                                 comment = {comment[idx].name}
                                 img = {imageJSON[idx].img}
-                                />  )})}
+                                /> ))}
                         </ul>
                     </section>
                     <div className="chat_btn">

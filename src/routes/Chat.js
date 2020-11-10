@@ -6,10 +6,10 @@ export default function Chat(props) {
     const {location , history} = props;
     const redirect = () => {
         if(location.state === undefined){
-            history.replace('/Chats');
+            history.push('/Chats');
         }
     }
-    useEffect(redirect);
+    useEffect(redirect,[]);
     if(location.state){
     return (
         <>

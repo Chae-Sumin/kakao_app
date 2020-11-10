@@ -1,35 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom'
 import './Profile.css';
-export default function Profile() {
+export default function Profile(props) {
+    const {location, history} = props;
+    const redirect = () => {
+        if(location.state === undefined){
+            history.push('/');
+        }
+    }
+    useEffect(redirect,[]);
+    if(location.state){
+        const {id, name, img, bg} = location.state;
+        console.log(id, name, img, bg);
     return (
         <>
          <header className='Profile'>
-        <div class="status_bar">
-            <div class="left_item"><i class="fas fa-plane"></i><i class="fas fa-wifi"></i></div>
-            <div class="center_item"><span>17</span>:<span>33</span></div>
-            <div class="right_item"><i class="far fa-moon"></i><i class="fab fa-bluetooth-b"></i><span><span>100</span>%</span><i class="fas fa-battery-full"></i></div>
+        <div className="status_bar">
+            <div className="left_item"><i className="fas fa-plane"></i><i className="fas fa-wifi"></i></div>
+            <div className="center_item"><span>17</span>:<span>33</span></div>
+            <div className="right_item"><i className="far fa-moon"></i><i className="fab fa-bluetooth-b"></i><span><span>100</span>%</span><i className="fas fa-battery-full"></i></div>
         </div>
-        <div class="header_inner">
+        <div className="header_inner">
             <h1></h1>
-            <div class="left_item"><Link to="/"><i class="fas fa-times"></i></Link></div>
-            <div class="right_item"><a href="#"><i class="fas fa-user"></i></a></div>
+            <div className="left_item"><Link to="/"><i className="fas fa-times"></i></Link></div>
+            <div className="right_item"><a href="#"><i className="fas fa-user"></i></a></div>
         </div>
     </header>
         <main id="Profile">
-        <section class="background"></section>
-        <section class="profile">
-            <div class="profile_img"></div>
-            <div class="profile_cont">
-                <span class="profile_name">My Name</span>
-                <input type="text" class="profile_email" placeholder="UserID@gmail.com"/>
-                <ul class="profile_menu">
-                   <li><a href="#"><span class="icon"><i class="fas fa-comment"></i></span>My Chatroom</a></li> 
-                   <li><a href="#"><span class="icon"><i class="fas fa-pencil-alt"></i></span>Edit Profile</a></li> 
+        <section className="background" style={{backgroundImage: (bg ? ("url("+bg+")") : null)}}></section>
+        <section className="profile">
+            <div className="profile_img" style={{backgroundImage: (img ? ("url("+img+")") : null)}}></div>
+            <div className="profile_cont">
+                <span className="profile_name">{name}</span>
+                <input type="text" className="profile_email" placeholder="UserID@gmail.com"/>
+                <ul className="profile_menu">
+                   <li><a href="#"><span className="icon"><i className="fas fa-comment"></i></span>My Chatroom</a></li> 
+                   <li><a href="#"><span className="icon"><i className="fas fa-pencil-alt"></i></span>Edit Profile</a></li> 
                 </ul>
             </div>
         </section>
         </main>
         </>
-    )
+    )} else return null;
 }

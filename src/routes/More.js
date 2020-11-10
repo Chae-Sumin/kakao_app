@@ -1,7 +1,9 @@
 import React from 'react'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
+import plusJSON from '../data/plusList.json'
 import './More.css'
+import PlusFriends from '../components/PlusFriends'
 
 export default function More() {
     return (
@@ -31,14 +33,9 @@ export default function More() {
                         <span><i className="fas fa-info-circle"></i> Learn More</span>
                     </header>
                     <ul className="plus_list">
-                        <li><a href="#"><i className="fas fa-utensils"></i>Order</a></li>
-                        <li><a href="#"><i className="fas fa-home"></i>Store</a></li>
-                        <li><a href="#"><i className="fas fa-tv"></i>TV Channel/Radio</a></li>
-                        <li><a href="#"><i className="fas fa-pencil-alt"></i>Creation</a></li>
-                        <li><a href="#"><i className="fas fa-graduation-cap"></i>Education</a></li>
-                        <li><a href="#"><i className="fas fa-university"></i>Politics/Society</a></li>
-                        <li><a href="#"><i className="fas fa-won-sign"></i>Finance</a></li>
-                        <li><a href="#"><i className="fas fa-video"></i>Movies/Music</a></li>
+                        {plusJSON.map(plus => (
+                            <PlusFriends icon={plus.icon} text={plus.text}/>
+                        ))}
                     </ul>
                 </section>
                 <section className="more_app">
