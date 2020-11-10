@@ -6,7 +6,7 @@ body{overflow: hidden;}
 .Profile .header_inner .left_item a{opacity: 1; font-size: 20px;}
 #root{height: calc(100% - 64px);}
 #Profile{height: calc(100% - 10px);}
-#Profile .background{height: 65%; background: url(../images/bg_default.png);}
+#Profile .background{height: 65%; background: url(../images/bg_default.png) 50% 50% / 100% auto;}
 #Profile .profile{display: flex; justify-content: center; position: relative; width: 100%;}
 #Profile .profile_img{position: absolute; display: block; left: 50%; top: -65px; width: 100px; height: 100px; margin-left: -50px; background: url(../images/empty.jpg) 0 0 / cover no-repeat; border-radius: 50px;}
 #Profile .profile_cont{display: flex; flex-direction: column; align-items: center; margin-top: 45px;}

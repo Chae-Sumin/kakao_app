@@ -1,26 +1,13 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios';
+import React from 'react'
 import ChatList from '../components/ChatList'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
-import imageJSON from '../data/imageJSON.json'
+import profiles from '../data/memberList.json'
 import './Chats.css'
 export function Chats(){
-    const [names, setNames] = useState([]);
-    const [comment, setComment] = useState([]);
-    const tab_name = "Chats";
-    const left_btn = "Edit";
-    const header_icon = "fas fa-caret-down";
-    let getData = async () => {
-        const {data : names} = await axios.get('https://jsonplaceholder.typicode.com/users');
-        const {data : comment} = await axios.get('https://jsonplaceholder.typicode.com/comments');
-        setComment(comment);
-        setNames(names);
-    }
-    useEffect(getData,[]);
         return (
             <>
-                <Header tab_name = {tab_name} left_btn = {left_btn} header_icon = {header_icon}/>
+                <Header tab_name = "Chats" left_btn = "Edit" header_icon = "fas fa-caret-down"/>
                 <main id="Chats">
                     <div className="search_box">
                         <div className="search_inner">
@@ -30,13 +17,14 @@ export function Chats(){
                     </div>
                     <section className="main_section">
                         <ul>
-                            {names.map((name, idx)=>(
+                            {profiles.map(profile=>
+                            {if(profile.id != 0){return(
                                 <ChatList 
-                                id = {name.id}
-                                name = {name.name}
-                                comment = {comment[idx].name}
-                                img = {imageJSON[idx].img}
-                                /> ))}
+                                id = {profile.id}
+                                name = {profile.name}
+                                comment = {profile.lastMsg}
+                                img = {profile.profileImg}
+                                /> )}})}
                         </ul>
                     </section>
                     <div className="chat_btn">

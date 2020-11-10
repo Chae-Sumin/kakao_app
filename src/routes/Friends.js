@@ -1,19 +1,12 @@
-import React, {useEffect, useState}  from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
+import React  from 'react';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
-import FriendList from '../components/FriendList';
-import imageJSON from '../data/imageJSON.json';
+import MemberList from '../components/MemberList';
+import profiles from '../data/memberList.json';
 import "./Friends.css";
 
 export default function Friends() {
-    const [names, setNames] = useState([]);
-    let getData = async () => {
-        const {data : names} = await axios.get('https://jsonplaceholder.typicode.com/users');
-        setNames(names);
-    }
-    useEffect(getData,[]);
+    const myProfile = profiles[0];
     return (
         <>
             <Header tab_name = "Friends" friend_num="1" left_btn = "Manage" right_btn = "fas fa-cog"/>
@@ -27,25 +20,30 @@ export default function Friends() {
                 <section className="main_section">
                     <header><h2>My Profile</h2></header>
                     <ul>
-                        <li><Link to={{
-                            pathname : "/Profile",
-                            state : {id : 0, name: "My Name", img : false, bg: false}
-                            }}><span className="profile_img"></span><span className="profile_name">My Name</span></Link></li>
-                        <li><a href="#"><span className="profile_img"></span><span className="profile_name">Friends' Names Display</span></a></li>
+                            <MemberList 
+                                id = {myProfile.id}
+                                name = {myProfile.name}
+                                email = {myProfile.email}
+                                text = {myProfile.profileMsg}
+                                img = {myProfile.profileImg}
+                                bg = {myProfile.backgroundImg}
+                            />
                     </ul>
                 </section>
                 <section className="main_section">
                     <header><h2>Friends</h2></header>
                     <ul>
-                        {names.map((name, idx)=>(
-                            <FriendList 
-                                id = {name.id}
-                                name = {name.name}
-                                text = {name.username}
-                                img = {imageJSON[idx].img}
-                                bg = {imageJSON[idx].bg}
+                        {profiles.map(profile=>{
+                            if(profile.id != 0) {return(
+                            <MemberList 
+                                id = {profile.id}
+                                name = {profile.name}
+                                email = {profile.email}
+                                text = {profile.profileMsg}
+                                img = {profile.profileImg}
+                                bg = {profile.backgroundImg}
                             />
-                        ))}
+                        )}})}
                     </ul>
                 </section>
             </main>

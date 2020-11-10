@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-function FriendList({id, name, img, text, bg}) {
+function FriendList({id, name, email, img, text, bg}) {
     return (
         <li>
             <Link to={{
                 pathname : '/Profile',
-                state : {id, name, img, bg}
+                state : {id, name, email, img, bg}
                 }}>
                 <span className="profile_img" style={{backgroundImage : 'url('+img+')'}}></span>
                 <span className="profile_name">{name}</span>

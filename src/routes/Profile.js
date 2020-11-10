@@ -10,8 +10,7 @@ export default function Profile(props) {
     }
     useEffect(redirect,[]);
     if(location.state){
-        const {id, name, img, bg} = location.state;
-        console.log(id, name, img, bg);
+        const {id, name, email, img, bg} = location.state;
     return (
         <>
          <header className='Profile'>
@@ -32,7 +31,7 @@ export default function Profile(props) {
             <div className="profile_img" style={{backgroundImage: (img ? ("url("+img+")") : null)}}></div>
             <div className="profile_cont">
                 <span className="profile_name">{name}</span>
-                <input type="text" className="profile_email" placeholder="UserID@gmail.com"/>
+                <input type="text" className="profile_email" placeholder={email}/>
                 <ul className="profile_menu">
                    <li><a href="#"><span className="icon"><i className="fas fa-comment"></i></span>My Chatroom</a></li> 
                    <li><a href="#"><span className="icon"><i className="fas fa-pencil-alt"></i></span>Edit Profile</a></li> 
