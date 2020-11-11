@@ -12,7 +12,7 @@ main#Chats{height: 85.8%; padding-top: 64px; padding-bottom: 100px; overflow-y: 
 #Chats .main_section ul{display: flex; flex-direction: column;}
 #Chats .main_section ul li{border-bottom: 1px solid #ebebeb;}
 #Chats .main_section ul li a{display: flex; flex-wrap: wrap; font-size: 16px;}
-#Chats .main_section .chats_img{display: block; width: 50px; height: 50px; margin: 15px; background: url(../images/empty.jpg) 50% 50% / auto 100% no-repeat; border-radius: 25px;}
+#Chats .main_section .chats_img{display: block; width: 50px; height: 50px; margin: 15px; background: url(../images/empty.jpg) 50% 50% / cover no-repeat; border-radius: 25px;}
 #Chats .main_section .chats_cont{width: 60%; display: flex; flex: auto; flex-direction: column;}
 #Chats .main_section .chats_name{width: 100%; margin-top: 10px; font-weight: bold;}
 #Chats .main_section .chats_latest{width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12px;margin-top: 5px; color: #8E9399;}
