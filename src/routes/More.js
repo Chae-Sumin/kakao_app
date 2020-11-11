@@ -14,7 +14,7 @@ export default function More() {
             
             <main id="More">
                 <section className="user_info">
-                    <span className="profile_img"></span>
+                    <span className="profile_img" style={{backgroundImage : 'url('+myProfile.profileImg+')'}}></span>
                     <span className="profile_info">
                         <span className="profile_name">{myProfile.name}</span>
                         <span className="profile_email">{myProfile.email}</span>
