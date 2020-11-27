@@ -11,7 +11,7 @@ import Chat from './routes/Chat'
 function App() {
   return (
     <HashRouter>
-      <Route path="/" exact="true" component={Friends} />
+      <Route path="/" exact component={Friends} />
       <Route path="/More" component={More} />
       <Route path="/Chats" component={Chats} />
       <Route path="/Find" component={Find} />

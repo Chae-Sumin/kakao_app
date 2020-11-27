@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-function FriendList({id, name, email, img, text, bg}) {
+function MemberList({id, name, email, img, text, bg}) {
     return (
         <li>
             <Link to={{
@@ -17,4 +17,4 @@ function FriendList({id, name, email, img, text, bg}) {
     )
 }
 
-export default FriendList
+export default MemberList

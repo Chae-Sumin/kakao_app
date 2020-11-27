@@ -1,4 +1,5 @@
-import React  from 'react';
+import React, { useEffect, useState }  from 'react';
+import Axios from 'axios';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import MemberList from '../components/MemberList';
@@ -7,6 +8,14 @@ import "./Friends.css";
 
 export default function Friends() {
     const myProfile = profiles[0];
+    const [userNames, setUserNames] = useState([]);
+    const getUserName = async () => {
+        const {data : userNames} = await Axios.get('https://jsonplaceholder.typicode.com/users');
+        console.log(userNames);
+        setUserNames(userNames);
+    }
+    useEffect(getUserName,[]);
+    if(userNames.length === 0){return null}
     return (
         <>
             <Header tab_name = "Friends" friend_num="1" left_btn = "Manage" right_btn = "fas fa-cog"/>
@@ -33,11 +42,11 @@ export default function Friends() {
                 <section className="main_section">
                     <header><h2>Friends</h2></header>
                     <ul>
-                        {profiles.map(profile=>{
+                        {profiles.map((profile,idx)=>{
                             if(profile.id != 0) {return(
                             <MemberList 
                                 id = {profile.id}
-                                name = {profile.name}
+                                name = {userNames[idx-1].name}
                                 email = {profile.email}
                                 text = {profile.profileMsg}
                                 img = {profile.profileImg}
